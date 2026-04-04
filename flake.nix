@@ -25,8 +25,9 @@
               cmp = false;
               gitsigns = true;
               nvimtree = false;
-              treesitter = false;
+              treesitter = true;
               notify = true;
+              telescope = true;
             };
           };
         };
@@ -133,6 +134,13 @@
           #debug
 
           #misc
+          treesitter = {
+            enable = true;
+            settings = {
+              highlight.enable = true;
+              indent.enable = true;
+            };
+          };
           leetcode.enable = true;
           neocord.enable = true;
         };
