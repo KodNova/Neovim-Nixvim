@@ -109,7 +109,23 @@
             enable = true;
             enableTelescope = true;
           };
-          telescope.enable = true;
+          telescope = {
+            enable = true;
+            settings = {
+              defaults = {
+                sorting_strategy = "ascending";
+                layout_config = {
+                  prompt_position = "top";
+                };
+              };
+            };
+            keymaps = {
+              "<leader>ff" = "find_files";
+              "<leader>fg" = "live_grep";
+              "<leader>fb" = "buffers";
+              "<leader>fh" = "help_tags";
+            };
+          };
           neo-tree.enable = true;
           undotree.enable = true;
           comfy-line-numbers.enable = true;
@@ -118,7 +134,7 @@
 
           #misc
           leetcode.enable = true;
-          persistence.enable = true;
+          neocord.enable = true;
         };
 
         globals.mapleader = " ";
