@@ -30,6 +30,7 @@
             };
           };
         };
+
         lsp.servers = {
           # BASED (FP chads)
           hls.enable = true; # Haskell, the pinnacle
@@ -66,12 +67,44 @@
         };
 
         plugins = {
+          #lsp
           lspconfig.enable = true;
           lsp-format.enable = true;
+
+          #ui
+          lualine = {
+            enable = true;
+            settings = {
+              options.theme = "onedark"; # NOTE: dracula | gruvbox | onedark | catppuccin
+              sections.lualine_x = [
+                {
+                  __raw = ''
+                    function()
+                      local clients = vim.lsp.get_clients({ bufnr = 0 })
+                      if #clients == 0 then return "" end
+                      return "󰒍 " .. table.concat(vim.tbl_map(function(c) return c.name end, clients), ", ")
+                    end
+                  '';
+                }
+                "encoding"
+                "fileformat"
+                "filetype"
+              ];
+            };
+          };
+          plugins.web-devicons.enable = true;
+
+          #git
+          lazygit.enable = true;
+          gitsigns.enable = true;
+
+          #nav
           neo-tree.enable = true;
           undotree.enable = true;
+
+          #misc
           leetcode.enable = true;
-          lazygit.enable = true;
+          persistence.enable = true;
         };
 
         globals.mapleader = " ";
