@@ -68,7 +68,183 @@
         plugins = {
           lspconfig.enable = true;
           lsp-format.enable = true;
+          neo-tree.enable = true;
+          undotree.enable = true;
+          leetcode.enable = true;
+          lazygit.enable = true;
         };
+
+        globals.mapleader = " ";
+        opts = {
+          smartindent = true;
+          autoindent = true;
+          backup = false;
+          clipboard = "unnamedplus";
+          cmdheight = 1;
+          conceallevel = 0;
+          fileencoding = "utf-8";
+          foldmethod = "manual";
+          foldexpr = "";
+          guifont = "monospace:h17";
+          hidden = true;
+          hlsearch = true;
+          ignorecase = true;
+          mouse = "a";
+          pumheight = 10;
+          showmode = false;
+          smartcase = true;
+          splitbelow = true;
+          splitright = true;
+          swapfile = false;
+          termguicolors = true;
+          timeoutlen = 1000;
+          title = true;
+          undofile = true;
+          updatetime = 100;
+          writebackup = false;
+          expandtab = true;
+          shiftwidth = 2;
+          tabstop = 2;
+          cursorline = true;
+          number = true;
+          numberwidth = 4;
+          signcolumn = "yes";
+          wrap = false;
+          scrolloff = 8;
+          sidescrolloff = 8;
+          showcmd = false;
+          ruler = false;
+          relativenumber = true;
+          laststatus = 3;
+        };
+        keymaps = [
+          {
+            key = "<C-s>";
+            mode = "n";
+            action = ":w<CR>";
+            options.silent = false;
+          }
+          {
+            key = "<C-l>";
+            mode = "i";
+            action = "<Right>";
+            options.silent = false;
+          }
+          {
+            key = "<M-o>";
+            mode = "n";
+            action = ":normal! o<CR>";
+            options.silent = false;
+          }
+          {
+            key = "<M-O>";
+            mode = "n";
+            action = ":normal! O<CR>";
+            options.silent = false;
+          }
+          {
+            key = "<leader>n";
+            mode = "n";
+            action = ":set relativenumber!<CR>";
+            options.silent = false;
+          }
+          {
+            key = "<leader>gg";
+            mode = "n";
+            action = ":LazyGit<CR>";
+            options.silent = true;
+          }
+          {
+            key = "<Leader>lsp";
+            mode = "n";
+            action = ":LspInfo<CR>";
+            options.silent = false;
+          }
+          {
+            key = "<leader>rn";
+            mode = "n";
+            action = "<cmd>lua vim.lsp.buf.rename()<CR>";
+            options.silent = false;
+          }
+          {
+            key = "<leader>d";
+            mode = "n";
+            action = "<cmd>lua vim.diagnostic.open_float()<cr>";
+            options.silent = false;
+          }
+          {
+            key = "<leader>E";
+            mode = "n";
+            action = ":e!<cr>";
+            options.silent = false;
+          }
+          {
+            key = "<M-j>";
+            mode = "n";
+            action = ":m '>+1<CR>gv=gv";
+            options.silent = false;
+          }
+          {
+            key = "<M-k>";
+            mode = "n";
+            action = ":m '<-2<CR>gv=gv";
+            options.silent = false;
+          }
+          {
+            key = "J";
+            mode = "n";
+            action = "mzJ`z";
+            options.silent = false;
+          }
+          {
+            key = "<C-d>";
+            mode = "n";
+            action = "<C-d>zz";
+            options.silent = false;
+          }
+          {
+            key = "<C-u>";
+            mode = "n";
+            action = "<C-u>zz";
+            options.silent = false;
+          }
+          {
+            key = "n";
+            mode = "n";
+            action = "nzzzv";
+            options.silent = false;
+          }
+          {
+            key = "N";
+            mode = "n";
+            action = "Nzzzv";
+            options.silent = false;
+          }
+          {
+            key = "Q";
+            mode = "n";
+            action = "<nop>";
+            options.silent = false;
+          }
+          {
+            key = "<leader>s";
+            mode = "n";
+            action = ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>";
+            options.silent = false;
+          }
+          {
+            key = "<leader>e";
+            mode = "n";
+            action = ":Neotree left<CR>";
+            options.silent = true;
+          }
+          {
+            key = "<F5>";
+            mode = "n";
+            action = ":UndotreeToggle<CR>";
+            options.silent = true;
+          }
+        ];
       };
     });
   };
