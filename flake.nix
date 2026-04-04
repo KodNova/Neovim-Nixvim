@@ -98,14 +98,23 @@
           notify.enable = true;
           barbecue.enable = true;
           illuminate.enable = true;
+          colorful-menu.enable = true;
 
           #git
           lazygit.enable = true;
           gitsigns.enable = true;
 
           #nav
+          harpoon = {
+            enable = true;
+            enableTelescope = true;
+          };
+          telescope.enable = true;
           neo-tree.enable = true;
           undotree.enable = true;
+          comfy-line-numbers.enable = true;
+
+          #debug
 
           #misc
           leetcode.enable = true;
@@ -281,6 +290,49 @@
             mode = "n";
             action = ":UndotreeToggle<CR>";
             options.silent = true;
+          }
+          # harpoon
+          {
+            key = "<leader>a";
+            mode = "n";
+            action.__raw = "function() require('harpoon'):list():add() end";
+            options.silent = true;
+            options.desc = "Harpoon: Add file";
+          }
+          {
+            key = "<C-e>";
+            mode = "n";
+            action.__raw = "function() local h = require('harpoon'); h.ui:toggle_quick_menu(h:list()) end";
+            options.silent = true;
+            options.desc = "Harpoon: Toggle menu";
+          }
+          {
+            key = "<C-h>";
+            mode = "n";
+            action.__raw = "function() require('harpoon'):list():select(1) end";
+            options.silent = true;
+            options.desc = "Harpoon: File 1";
+          }
+          {
+            key = "<C-j>";
+            mode = "n";
+            action.__raw = "function() require('harpoon'):list():select(2) end";
+            options.silent = true;
+            options.desc = "Harpoon: File 2";
+          }
+          {
+            key = "<C-k>";
+            mode = "n";
+            action.__raw = "function() require('harpoon'):list():select(3) end";
+            options.silent = true;
+            options.desc = "Harpoon: File 3";
+          }
+          {
+            key = "<C-l>";
+            mode = "n";
+            action.__raw = "function() require('harpoon'):list():select(4) end";
+            options.silent = true;
+            options.desc = "Harpoon: File 4";
           }
         ];
       };
