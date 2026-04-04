@@ -26,7 +26,7 @@
               gitsigns = true;
               nvimtree = false;
               treesitter = false;
-              notify = false;
+              notify = true;
             };
           };
         };
@@ -92,7 +92,12 @@
               ];
             };
           };
-          plugins.web-devicons.enable = true;
+          web-devicons.enable = true;
+          indent-blankline.enable = true;
+          colorizer.enable = true;
+          notify.enable = true;
+          barbecue.enable = true;
+          illuminate.enable = true;
 
           #git
           lazygit.enable = true;
