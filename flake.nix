@@ -81,6 +81,13 @@
                 timeout_ms = 1000;
                 lsp_fallback = true;
               };
+              formatters = {
+                biome = {
+                  command = "biome";
+                  args = ["format" "--write" "$FILENAME"];
+                  stdin = false;
+                };
+              };
               formatters_by_ft = {
                 javascript = {
                   __unkeyed-1 = "biome";
