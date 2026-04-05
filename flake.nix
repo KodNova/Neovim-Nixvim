@@ -131,6 +131,23 @@
           undotree.enable = true;
           comfy-line-numbers.enable = true;
 
+          #editor
+          friendly-snippets.enable = true;
+          blink-cmp = {
+            enable = true;
+            settings = {
+              sources.default = ["lsp" "path" "snippets" "buffer"];
+              keymap = {
+                preset = "none";
+                "<Tab>" = ["select_next" "fallback"];
+                "<S-Tab>" = ["select_prev" "fallback"];
+                "<CR>" = ["accept" "fallback"];
+                "<C-Space>" = ["show" "fallback"];
+                "<C-e>" = ["cancel" "fallback"];
+              };
+            };
+          };
+
           #debug
 
           #misc
@@ -141,6 +158,7 @@
               indent.enable = true;
             };
           };
+          todo-comments.enable = true;
           leetcode.enable = true;
           neocord.enable = true;
         };
