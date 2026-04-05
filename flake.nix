@@ -203,6 +203,7 @@
           };
           blink-cmp-copilot.enable = false;
           blink-pairs.enable = true;
+          ts-autotag.enable = true;
 
           #debug
           wtf.enable = true;
@@ -327,13 +328,13 @@
           }
           {
             key = "<M-j>";
-            mode = "n";
+            mode = "v";
             action = ":m '>+1<CR>gv=gv";
             options.silent = false;
           }
           {
             key = "<M-k>";
-            mode = "n";
+            mode = "v";
             action = ":m '<-2<CR>gv=gv";
             options.silent = false;
           }
