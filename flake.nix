@@ -94,7 +94,7 @@
             };
           };
           web-devicons.enable = true;
-          indent-blankline.enable = true;
+          blink-indent.enable = true;
           colorizer.enable = true;
           notify.enable = true;
           barbecue.enable = true;
@@ -147,6 +147,8 @@
               };
             };
           };
+          blink-cmp-copilot.enable = false;
+          blink-pairs.enable = true;
 
           #debug
 
