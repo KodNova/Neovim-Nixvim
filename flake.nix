@@ -148,7 +148,15 @@
           };
           web-devicons.enable = true;
           blink-indent.enable = true;
-          colorizer.enable = true;
+          colorizer = {
+            enable = true;
+            settings = {
+              user_default_options = {
+                tailwind = true;
+                css = true;
+              };
+            };
+          };
           notify.enable = true;
           barbecue.enable = true;
           illuminate.enable = true;
