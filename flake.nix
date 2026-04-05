@@ -46,7 +46,8 @@
           # unison.enable = true;                       # Unison, too ahead of its time for NixVim
 
           # NECESSARY EVILS
-          ts_ls.enable = true; # TypeScript / JavaScript, it has map() so we allow it
+          ts_ls.enable = true; # TypeScript, it has map() so we allow it
+          biome.enable = true; # Biome, linting so you don't ship garbage TS
           tailwindcss.enable = true; # Tailwind, utility class sorcery
           taplo.enable = true; # TOML, your Cargo.toml sherpa
           sqls.enable = true; # SQL, ancient and humbling
@@ -70,7 +71,52 @@
         plugins = {
           #lsp
           lspconfig.enable = true;
-          lsp-format.enable = true;
+          lsp-format.enable = false;
+
+          #format & lint
+          conform-nvim = {
+            enable = true;
+            settings = {
+              format_on_save = {
+                timeout_ms = 1000;
+                lsp_fallback = true;
+              };
+              formatters_by_ft = {
+                javascript = {
+                  __unkeyed-1 = "biome";
+                  __unkeyed-2 = "prettier";
+                  stop_after_first = true;
+                };
+                typescript = {
+                  __unkeyed-1 = "biome";
+                  __unkeyed-2 = "prettier";
+                  stop_after_first = true;
+                };
+                javascriptreact = {
+                  __unkeyed-1 = "biome";
+                  __unkeyed-2 = "prettier";
+                  stop_after_first = true;
+                };
+                typescriptreact = {
+                  __unkeyed-1 = "biome";
+                  __unkeyed-2 = "prettier";
+                  stop_after_first = true;
+                };
+                json = {
+                  __unkeyed-1 = "biome";
+                  __unkeyed-2 = "prettier";
+                  stop_after_first = true;
+                };
+                css = {
+                  __unkeyed-1 = "biome";
+                  __unkeyed-2 = "prettier";
+                  stop_after_first = true;
+                };
+                html = ["prettier"];
+                rust = ["rustfmt"];
+              };
+            };
+          };
 
           #ui
           lualine = {
@@ -137,6 +183,7 @@
             enable = true;
             settings = {
               sources.default = ["lsp" "path" "snippets" "buffer"];
+              signature.enabled = true;
               keymap = {
                 preset = "none";
                 "<Tab>" = ["select_next" "fallback"];
@@ -151,6 +198,7 @@
           blink-pairs.enable = true;
 
           #debug
+          wtf.enable = true;
 
           #misc
           treesitter = {
@@ -161,6 +209,7 @@
             };
           };
           todo-comments.enable = true;
+          crates.enable = true;
           leetcode.enable = true;
           neocord.enable = true;
         };
