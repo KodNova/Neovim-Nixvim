@@ -68,6 +68,10 @@
           jdtls.enable = false; # Java, the original sin
         };
 
+        extraPackages = with nixpkgs.legacyPackages.${system}; [
+          alejandra #nix
+        ];
+
         plugins = {
           #lsp
           lspconfig.enable = true;
@@ -121,6 +125,7 @@
                 };
                 html = ["prettier"];
                 rust = ["rustfmt"];
+                nix = ["alejandra"];
               };
             };
           };
